@@ -60,9 +60,21 @@ form.addEventListener('submit', (event) => {
     changeGold(selectedChoice.gold);
     changeHP(selectedChoice.HP);
     //tell user about the consequences of the actions
-    alert(selectedChoice.result);
+    // alert(selectedChoice.result);
+    const resultsDiv = document.createElement('div');
+    resultsDiv.textContent = selectedChoice.result;
+
     //take user back to list page
-    window.location = '../list';
+    const redirectButton = document.createElement('button');
+    redirectButton.textContent = 'Back to List';
+    redirectButton.addEventListener('click', () => {
+        window.location = '../list';
+    }
+
+    resultsDiv.appendChild(redirectButton);
+    form.remove();
+    main.append(resultsDiv);
+    
 });
 //put everything we built into the mian DOM element
 main.appendChild(h1, p, img, form);
