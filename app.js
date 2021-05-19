@@ -1,3 +1,5 @@
+import { setUser } from './local-storage-utils.js';
+
 
 // using a form would've made madlibs way easier! It's really good for when you have lots of input fields
 const form = document.querySelector('#user-form');
@@ -20,6 +22,15 @@ form.addEventListener('submit', (event) => {
     //     -completed {}
     //     -initial gold
     //     -initial hp
+    const userObject = {
+        name: user,
+        class: userClass,
+        hp: 30,
+        gold: 0,
+        completed: {},
+    };
+
+   setUser = userObject;
     // 3. Redirect to the quest list page/map
     window.location = '.list';
 });
